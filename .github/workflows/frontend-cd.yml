@@ -1,0 +1,17 @@
+name: Frontend CD
+
+# TODO: 今後CDを入れる際はonの箇所を修正する必要あり
+on:
+  push:
+    paths:
+      - 'frontend/Dockerfile'
+      - '.github/workflows/frontend-cd.yml'
+
+jobs:
+  docker-build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Build frontend image
+        run: docker build ./frontend

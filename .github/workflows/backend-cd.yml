@@ -1,0 +1,17 @@
+name: Backend CD
+
+# TODO: 今後CDを入れる際はonの箇所を修正する必要あり
+on:
+  push:
+    paths:
+      - 'backend/Dockerfile'
+      - '.github/workflows/backend-cd.yml'
+
+jobs:
+  docker-build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Build backend image
+        run: docker build ./backend
