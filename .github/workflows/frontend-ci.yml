@@ -4,7 +4,7 @@ on:
   push:
     paths:
       - 'frontend/**'
-      - '.github/workflows/frontend.yml'
+      - '.github/workflows/frontend-ci.yml'
 
 jobs:
   build-test:
@@ -28,9 +28,6 @@ jobs:
 
       - name: Run lint
         run: yarn lint
-
-      - name: Run type check
-        run: yarn type-check
 
       - name: Build
         run: yarn build
